@@ -120,6 +120,12 @@ module.exports = function (server, config) {
                 });
             });
         }
+        if (config.turnserversLongTerm) {
+            config.turnserversLongTerm.forEach(function (server) {
+                credentials.push(server);
+            });
+        }
+
         client.emit('turnservers', credentials);
     });
 
